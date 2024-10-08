@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giftcard Balance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #003a7e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            margin-top: 15%;
+        }
+        #loadingMessage {
+            font-size: 26px;
+            color: #ffffff;
+        }
+        #continueButton, #redeemButton {
+            display: none;
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #005bb5;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #continueButton:hover, #redeemButton:hover {
+            background-color: #007bff;
+        }
+        #logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        #balanceDisplay {
+            margin-top: 20px;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="logo" src="https://cdn.theatertoolkit.com/cdn/wwwroot/themes/custom/thelotent/images/logo.png?v=20240904.1" alt="Logo">
+        
+        <p id="loadingMessage">We are loading the details...</p>
+    </div>
+
+    <div id="balanceDisplay" style="display:none;"></div>
+
+    <script>
+
+
+        // Función para obtener los datos del Google Sheets
+        function fetchBalance() {
+            document.getElementById("continueButton").style.display = "none";
+
+            fetch('https://script.google.com/macros/s/AKfycbytqaDsXIBR1dyfJF7XezN8XV8FTaHDmP-ygz6BJCaU3wnaeErlrzGO9ZCxF77vHf0W/exec')
+                .then(response => response.json())
+                .then(data => {
+                    const display = `
+
+                        <p>Cinema: ${data.A2}</p>
+                        <p>Phone: $ ${data.B2}</p>
+                        <p>Balance: ${data.C2}</p>
+                        <p>Redeem: ${data.C2}</p>
+                        <p>FinalBalance: ${data.C2}</p>
+                        <p>Transaction: ${data.C2}</p>
+                        <p>Date: ${data.C2}</p>
+                    `;
+                    document.getElementById("balanceDisplay").innerHTML = display;
+                    document.getElementById("balanceDisplay").style.display = "block";
+
+                    // Mostrar el botón "Redeem Points"
+                   // document.getElementById("redeemButton").style.display = "block";
+                })
+                .catch(error => console.error('Error fetching balance:', error));
+        }
+
+        // Función para redirigir a otra URL cuando se haga clic en "Redeem Balance"
+        function redeemBalance() {
+            window.location.href = 'https://qkstzdro6ry.typeform.com/to/XwzsWAoZ';
+        }
+    </script>
+</body>
+</html>
