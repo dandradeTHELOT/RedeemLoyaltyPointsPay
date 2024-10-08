@@ -51,7 +51,7 @@
         
         <p id="loadingMessage">We are loading the balance...</p>
         <button id="continueButton" onclick="fetchBalance()">Check Transaction Details</button>
-       // <button id="redeemButton" onclick="redeemBalance()">Check Transaction Details</button>
+        <button id="redeemButton" onclick="redeemBalance()">Redeem again</button>
     </div>
 
     <div id="balanceDisplay" style="display:none;"></div>
@@ -72,7 +72,7 @@
                 .then(data => {
                     const display = `
                         <p>Cinema: ${data.A2}</p>
-                        <p>Phone: $ ${data.B2}</p>
+                        <p>Phone: ${data.B2}</p>
                         <p>Balance: $ ${data.C2}</p>
                         <p>Redeem: $ ${data.D2}</p>
                         <p>FinalBalance: $ ${data.E2}</p>
@@ -90,7 +90,7 @@
 
         // Función para redirigir a otra URL cuando se haga clic en "Check Transaction Details"
         function redeemBalance() {
-            window.location.href = 'https://qkstzdro6ry.typeform.com/to/XwzsWAoZ'; // Cambia esta URL si es necesario
+            window.location.href = 'https://qkstzdro6ry.typeform.com/to/pYhUr0sf'; // Cambia esta URL si es necesario
         }
     </script>
 </body>
