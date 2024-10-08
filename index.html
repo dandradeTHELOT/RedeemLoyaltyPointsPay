@@ -51,7 +51,7 @@
         
         <p id="loadingMessage">We are loading the balance...</p>
         <button id="continueButton" onclick="fetchBalance()">Check Balance</button>
-        <button id="redeemButton" onclick="redeemBalance()">Check Transaction Details </button>
+        <button id="redeemButton" onclick="redeemBalance()">Check Transaction Details</button>
     </div>
 
     <div id="balanceDisplay" style="display:none;"></div>
@@ -71,9 +71,8 @@
                 .then(response => response.json())
                 .then(data => {
                     const display = `
-
                         <p>Cinema: ${data.A2}</p>
-                        <p>Phone: ${data.B2}</p>
+                        <p>Phone: $ ${data.B2}</p>
                         <p>Balance: $ ${data.C2}</p>
                         <p>Redeem: $ ${data.D2}</p>
                         <p>FinalBalance: $ ${data.E2}</p>
@@ -83,15 +82,15 @@
                     document.getElementById("balanceDisplay").innerHTML = display;
                     document.getElementById("balanceDisplay").style.display = "block";
 
-                    // Mostrar el botón "Redeem Balance"
-                    //document.getElementById("redeemButton").style.display = "block";
+                    // Mostrar el botón "Check Transaction Details"
+                    document.getElementById("redeemButton").style.display = "block";
                 })
                 .catch(error => console.error('Error fetching balance:', error));
         }
 
         // Función para redirigir a otra URL cuando se haga clic en "Redeem Balance"
         function redeemBalance() {
-        window.location.href = 'https://qkstzdro6ry.typeform.com/to/XwzsWAoZ';
+            window.location.href = 'https://qkstzdro6ry.typeform.com/to/XwzsWAoZ';
         }
     </script>
 </body>
